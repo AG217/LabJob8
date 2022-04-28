@@ -1,7 +1,7 @@
 import java.io.*;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         try {
             FileOutputStream fos = new FileOutputStream("C://bob//first.txt");
             fos.write("Hello interesting".getBytes());
@@ -17,8 +17,7 @@ public class Main {
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
-        copyFiles("C://bob//first.txt","C://bob//second.txt");
-//
+
         try (FileInputStream fis = new FileInputStream("C://bob//first.txt")) {
             System.out.println(fis.available());
         } catch (IOException e) {
@@ -29,6 +28,7 @@ public class Main {
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
+        copyFiles("C://bob//first.txt","C://bob//second.txt");
     }
 
     static public void copyFiles(String first, String second) throws IOException {
